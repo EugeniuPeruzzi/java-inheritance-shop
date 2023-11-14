@@ -3,106 +3,87 @@ package org.lessons.java;
 import java.util.Scanner;
 
 public class Carrello {
+	static final int PRODOTTI_COUT = 10;
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        //inizializzo un array per inserire i prodotti
+        Prodotto[] prodotti = new Prodotto[PRODOTTI_COUT];
+        int i = 0;
+        // un ciclo while che fin che non viene inserito qualcosa diverso da si o y o yes 
+        //il programma si ferma e restituisce tutti i dati inseirti
+        while (true) {
+            System.out.println("Vuoi inserire un prodotto? (Si/No)");
+            String answer = in.nextLine().toLowerCase();
+            //il programma si ferma e stampa in console tutti i dati inseriti 
+            if (!answer.equals("si") && !answer.equals("yes") && !answer.equals("y")) {
+                for (int j = 0; j <i; j++) {
+                    System.out.println(prodotti[j] + "\n");
+                }
+                break;
+            }
+            //domande al utente per inserire i dati
+            System.out.println("Scegli il tipo di prodotto da inserire (Tv,Cuffie,Smartphone)");
+            String prodotto = in.nextLine().toLowerCase();
+            System.out.println("Inserisci il nome del prodotto");
+            String nome = in.nextLine();
+            System.out.println("Descrvi " + nome);
+            String descrizione = in.nextLine();
+            System.out.println("Prezzo");
+            String prezzoString = in.nextLine();
+            float prezzo = Float.valueOf(prezzoString);
+            System.out.println("Iva");
+            String ivaString = in.nextLine();
+            float iva = Float.valueOf(ivaString);
+            
+            // le varie casistiche di prodotti
+            switch (prodotto) {
+                case "tv":
+                    System.out.println("Inserisci la dimensione dello schermo:");
+                    String dimensioneString = in.nextLine();
+                    int dimensione = Integer.valueOf(dimensioneString);
 
-	public static void main(String[] args) {
-		// take input from user and store in varaibles
-		Scanner in = new Scanner(System.in);
-		
-		System.out.println("Vuoi inserire un prodotto? (Si/No)");
-		String answer = in.nextLine().toLowerCase();
-		
-		if(answer.equalsIgnoreCase("si") || answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")) {
-			System.out.println("Scegli il tipo di prodotto da inserire (Tv,Cuffie,Smartphone )");
-			String prodotto = in.nextLine().toLowerCase();
-			System.out.println("Inserisci il nome del prodotto");
-			String nome = in.nextLine();
-			System.out.println("Descrvi " + nome);
-			String descrizione = in.nextLine();
-			System.out.println("Prezzo");
-			String prezzoString = in.nextLine();
-			float prezzo = Float.valueOf(prezzoString);
-			System.out.println("Iva");
-			String ivaString = in.nextLine();
-			float iva = Float.valueOf(ivaString);
+                    System.out.println("Questo televisore è smart? (si/no)");
+                    String isSmart = in.nextLine();
+                    
+                    boolean smart = isSmart.equalsIgnoreCase("si");
+                    // viene creata una nuova classe e per ogni classe terminata i incrementa per poterne creare un'altra
+                    prodotti[i] = new Televisori(nome, descrizione, prezzo, iva, dimensione, smart);
+                    i++;
+                    break;
 
-			
+                case "smartphone":
+                    System.out.println("Inserisci la dimensione ram:");
+                    String ramString = in.nextLine();
+                    int ram = Integer.valueOf(ramString);
 
-			
-			switch (prodotto) {
-				case "tv":
-					
-					System.out.println("Inserisci la dimensione dello schermo:");
-	                String dimensioneString = in.nextLine();
-	                int dimensione = Integer.valueOf(dimensioneString);
-	                
-	                System.out.println("Questo televisore è smart? (si/no)");
-	                
-	                String isSmart = in.nextLine();
-	                
-	                boolean smart = true;
-	                if (isSmart.equalsIgnoreCase("si")) {
-	                	smart = true;
-	                }
-	                else {
-	                	smart = false;
-	                }
-	                
-	                Televisori t1 = new Televisori(nome, descrizione , prezzo, iva, dimensione, smart);
-	                System.out.println(t1);
-	                break;
-	                
-				case "smartphone":
-					
-					System.out.println("Inserisci la dimensione ram:");
-	                String ramString = in.nextLine();
-	                int ram = Integer.valueOf(ramString);
-	                
-					System.out.println("Inserisci la dimensione ram:");
-	                String imei = in.nextLine();
-	                
-	                Smartphone s1 = new Smartphone(nome, descrizione , prezzo, iva, imei, ram);
-	                System.out.println(s1);
-	                break;
-	                
-				case "cuffie":
-					
-					System.out.println("Colore delle cuffie:");
-	                String colore = in.nextLine();
+                    System.out.println("Inserisci il numero IMEI:");
+                    String imei = in.nextLine();
+                    // viene creata una nuova classe e per ogni classe terminata i incrementa per poterne creare un'altra
+                    prodotti[i] = new Smartphone(nome, descrizione, prezzo, iva, imei, ram);
+                    i++;
+                    break;
 
-	                
-	                System.out.println("Sono Wireless? (si/no)");
-	                
-	                String isWireless = in.nextLine();
-	                
-	                boolean wireless = true;
-	                if (isWireless.equalsIgnoreCase("si")) {
-	                	smart = true;
-	                }
-	                else {
-	                	smart = false;
-	                }
-	                
-	                Cuffie c1 = new Cuffie(nome, descrizione , prezzo, iva, colore, wireless);
-	                System.out.println(c1);
-	                break;
+                case "cuffie":
+                    System.out.println("Colore delle cuffie:");
+                    String colore = in.nextLine();
 
-			}
-			
-			
-		}
-		
-		
-		
-//		Smartphone s1 = new Smartphone("Iphone", "D1" , 190.22f, 22, "12398510598835619", 16);
-//		Televisori t1 = new Televisori("Sony", "D1" , 250.32f, 22, 17, false);
-//		Cuffie c1 = new Cuffie("Sony", "D1" , 35.36f, 22, "rosso", true);
-//
-//
-//		
-//		System.out.println(t1);
-//		System.out.println(s1);
-		
-		in.close();
-	}
+                    System.out.println("Sono Wireless? (si/no)");
+                    String isWireless = in.nextLine();
 
+                    boolean wireless = isWireless.equalsIgnoreCase("si");
+                    // viene creata una nuova classe e per ogni classe terminata i incrementa per poterne creare un'altra
+                    prodotti[i] = new Cuffie(nome, descrizione, prezzo, iva, colore, wireless);
+                    i++;
+                    break;
+
+                default:
+                    System.out.println("Prodotto non riconosciuto.");
+                    break;
+            
+            } 
+        }
+
+
+        in.close();
+    }
 }

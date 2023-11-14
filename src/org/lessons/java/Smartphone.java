@@ -39,8 +39,8 @@ public class Smartphone extends Prodotto{
 	public String toString() {
 		
 		return super.toString() 				
-				+ "ram: " + getRam() + "\n"
-				+ "imei: " + getImei() + "\n";
+				+ "Ram: " + getRam() + " GB\n"
+				+ "Imei: " + getImei() + "\n";
 	}
 
 }
