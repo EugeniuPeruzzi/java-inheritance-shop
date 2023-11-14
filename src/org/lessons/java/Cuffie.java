@@ -5,8 +5,8 @@ public class Cuffie extends Prodotto{
 	private String colore;
 	private boolean wireless;
 	
-	public Cuffie(String nome, String descrizione, float prezzo, float iva, String colore, boolean wireless) {
-		super(nome, descrizione, prezzo, iva);
+	public Cuffie(String nome, String descrizione, float prezzo, float iva, boolean fidelity ,String colore, boolean wireless) {
+		super(nome, descrizione, prezzo, iva, fidelity);
 		setColore(colore);
 		setWireless(wireless);
 	}
@@ -27,6 +27,26 @@ public class Cuffie extends Prodotto{
 		this.wireless = wireless;
 	}
 
+	@Override
+	public float calcolaPrezzoScontato() {
+	    float prezzoIvato = getPrezzoIvato();
+	    if (isFidelity()) {
+	    	if (!isWireless()) {
+	            float sconto = prezzoIvato * 0.07f;
+	            return prezzoIvato - sconto;
+	        } else {
+	            float sconto = prezzoIvato * 0.02f;
+	            return prezzoIvato - sconto;
+	        }
+
+
+	    } 
+	    else {
+	        return prezzoIvato;
+	    }
+	    
+        
+	}
 
 	@Override
 	public String toString() {

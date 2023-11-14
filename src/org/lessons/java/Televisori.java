@@ -4,8 +4,8 @@ public class Televisori extends Prodotto {
 	private int dimensioni;
 	private boolean smart;
 	
-	public Televisori(String nome, String descrizione, float prezzo, float iva, int dimensioni, boolean smart) {
-		super(nome, descrizione, prezzo, iva);
+	public Televisori(String nome, String descrizione, float prezzo, float iva, boolean fidelity, int dimensioni, boolean smart) {
+		super(nome, descrizione, prezzo, iva, fidelity);
 		setDimensioni(dimensioni);
 		setSmart(smart);
 		
@@ -28,11 +28,31 @@ public class Televisori extends Prodotto {
 	}
 	
 	@Override
+	public float calcolaPrezzoScontato() {
+	    float prezzoIvato = getPrezzoIvato();
+	    if (isFidelity()) {
+	        if (!isSmart()) {
+	            float sconto = prezzoIvato * 0.10f;
+	            return prezzoIvato - sconto;
+	        } else {
+	            float sconto = prezzoIvato * 0.02f;
+	            return prezzoIvato - sconto;
+	        }
+
+	    } 
+	    else {
+	        return prezzoIvato;
+	    }
+
+	}
+	
+	@Override
 	public String toString() {
 		
 		return super.toString()
-		+ "dimensioni: " + getDimensioni() + "\n"
+		+ "Dimensione schermo: " + getDimensioni() + "\n"
 		+ "Smart: " + isSmart() + "\n";
 	}
+	
 	
 }

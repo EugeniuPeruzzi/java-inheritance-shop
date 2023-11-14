@@ -35,6 +35,17 @@ public class Carrello {
             String ivaString = in.nextLine();
             float iva = Float.valueOf(ivaString);
             
+            System.out.println("Hai tessera fedelta?");
+            String fedeltaString = in.nextLine();
+            boolean fedelta = false;
+            if (fedeltaString.equalsIgnoreCase("si")) {
+            	 fedelta = true;
+            }
+
+            
+            
+            
+            
             // le varie casistiche di prodotti
             switch (prodotto) {
                 case "tv":
@@ -47,7 +58,7 @@ public class Carrello {
                     
                     boolean smart = isSmart.equalsIgnoreCase("si");
                     // viene creata una nuova classe e per ogni classe terminata i incrementa per poterne creare un'altra
-                    prodotti[i] = new Televisori(nome, descrizione, prezzo, iva, dimensione, smart);
+                    prodotti[i] = new Televisori(nome, descrizione, prezzo, iva, fedelta, dimensione, smart);
                     i++;
                     break;
 
@@ -59,7 +70,7 @@ public class Carrello {
                     System.out.println("Inserisci il numero IMEI:");
                     String imei = in.nextLine();
                     // viene creata una nuova classe e per ogni classe terminata i incrementa per poterne creare un'altra
-                    prodotti[i] = new Smartphone(nome, descrizione, prezzo, iva, imei, ram);
+                    prodotti[i] = new Smartphone(nome, descrizione, prezzo, iva, fedelta, imei, ram);
                     i++;
                     break;
 
@@ -72,7 +83,7 @@ public class Carrello {
 
                     boolean wireless = isWireless.equalsIgnoreCase("si");
                     // viene creata una nuova classe e per ogni classe terminata i incrementa per poterne creare un'altra
-                    prodotti[i] = new Cuffie(nome, descrizione, prezzo, iva, colore, wireless);
+                    prodotti[i] = new Cuffie(nome, descrizione, prezzo, iva, fedelta, colore, wireless);
                     i++;
                     break;
 
