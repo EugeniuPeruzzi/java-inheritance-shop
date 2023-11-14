@@ -29,29 +29,63 @@ public class Carrello {
 
 			
 			switch (prodotto) {
-			case "tv":
-				
-				System.out.println("Inserisci la dimensione dello schermo:");
-                String dimensioneString = in.nextLine();
-                int dimensione = Integer.valueOf(dimensioneString);
-                
-                System.out.println("Questo televisore è smart? (si/no)");
-                
-                String isSmart = in.nextLine();
-                
-                boolean smart = true;
-                if (isSmart.equalsIgnoreCase("si")) {
-                	smart = true;
-                }
-                else {
-                	smart = false;
-                }
-                
-                Televisori t1 = new Televisori(nome, descrizione , prezzo, iva, dimensione, smart);
-                System.out.println(t1);
-                break;
-                
-				
+				case "tv":
+					
+					System.out.println("Inserisci la dimensione dello schermo:");
+	                String dimensioneString = in.nextLine();
+	                int dimensione = Integer.valueOf(dimensioneString);
+	                
+	                System.out.println("Questo televisore è smart? (si/no)");
+	                
+	                String isSmart = in.nextLine();
+	                
+	                boolean smart = true;
+	                if (isSmart.equalsIgnoreCase("si")) {
+	                	smart = true;
+	                }
+	                else {
+	                	smart = false;
+	                }
+	                
+	                Televisori t1 = new Televisori(nome, descrizione , prezzo, iva, dimensione, smart);
+	                System.out.println(t1);
+	                break;
+	                
+				case "smartphone":
+					
+					System.out.println("Inserisci la dimensione ram:");
+	                String ramString = in.nextLine();
+	                int ram = Integer.valueOf(ramString);
+	                
+					System.out.println("Inserisci la dimensione ram:");
+	                String imei = in.nextLine();
+	                
+	                Smartphone s1 = new Smartphone(nome, descrizione , prezzo, iva, imei, ram);
+	                System.out.println(s1);
+	                break;
+	                
+				case "cuffie":
+					
+					System.out.println("Colore delle cuffie:");
+	                String colore = in.nextLine();
+
+	                
+	                System.out.println("Sono Wireless? (si/no)");
+	                
+	                String isWireless = in.nextLine();
+	                
+	                boolean wireless = true;
+	                if (isWireless.equalsIgnoreCase("si")) {
+	                	smart = true;
+	                }
+	                else {
+	                	smart = false;
+	                }
+	                
+	                Cuffie c1 = new Cuffie(nome, descrizione , prezzo, iva, colore, wireless);
+	                System.out.println(c1);
+	                break;
+
 			}
 			
 			
