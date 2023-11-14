@@ -80,8 +80,8 @@ public class Prodotto {
     
 	@Override
 	public String toString() {
-		
-		return "Studente:\n"
+		System.out.println("\n----------------------------");
+		return "Prodotto:\n"
 				+ "codice: " + getCodice() + "\n"
 				+ "nome: " + getNome() + "\n"
 				+ "descrizione: " + getDescrizione() + "\n"
