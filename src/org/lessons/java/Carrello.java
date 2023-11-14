@@ -9,6 +9,18 @@ public class Carrello {
         //inizializzo un array per inserire i prodotti
         Prodotto[] prodotti = new Prodotto[PRODOTTI_COUT];
         int i = 0;
+        boolean fedelta = false;
+        float sum = 0;
+        
+        
+        //Fedelta
+        System.out.println("Hai tessera fedelta?");
+        String fedeltaString = in.nextLine();
+        if (fedeltaString.equalsIgnoreCase("si")) {
+        	 fedelta = true;
+        }
+        
+        
         // un ciclo while che fin che non viene inserito qualcosa diverso da si o y o yes 
         //il programma si ferma e restituisce tutti i dati inseirti
         while (true) {
@@ -21,26 +33,28 @@ public class Carrello {
                 }
                 break;
             }
+            
             //domande al utente per inserire i dati
+            
+            //Prdotto
             System.out.println("Scegli il tipo di prodotto da inserire (Tv,Cuffie,Smartphone)");
             String prodotto = in.nextLine().toLowerCase();
+            //Nome prodotto
             System.out.println("Inserisci il nome del prodotto");
             String nome = in.nextLine();
+            // Descrizione
             System.out.println("Descrvi " + nome);
             String descrizione = in.nextLine();
+            //Prezzo
             System.out.println("Prezzo");
             String prezzoString = in.nextLine();
             float prezzo = Float.valueOf(prezzoString);
+            //IVA
             System.out.println("Iva");
             String ivaString = in.nextLine();
             float iva = Float.valueOf(ivaString);
             
-            System.out.println("Hai tessera fedelta?");
-            String fedeltaString = in.nextLine();
-            boolean fedelta = false;
-            if (fedeltaString.equalsIgnoreCase("si")) {
-            	 fedelta = true;
-            }
+
 
             
             
@@ -93,8 +107,17 @@ public class Carrello {
             
             } 
         }
-
-
+        
+        for (int y = 0; y < i; y++) {
+            Prodotto prodotto = prodotti[y];
+            if (fedelta) {
+                sum += prodotto.calcolaPrezzoScontato();
+            } else {
+                sum += prodotto.getPrezzoIvato();
+            }
+        }
+        System.out.println("La somma totale:" + sum);
+        
         in.close();
     }
 }
