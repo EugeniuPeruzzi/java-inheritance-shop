@@ -82,14 +82,14 @@ public class Prodotto {
 	public String toString() {
 		System.out.println("\n----------------------------");
 		return "Prodotto:\n"
-				+ "codice: " + getCodice() + "\n"
-				+ "nome: " + getNome() + "\n"
-				+ "descrizione: " + getDescrizione() + "\n"
-				+ "prezzo: " + getPrezzo() + "$\n"
-				+ "iva: " + getIva() + "%\n"
-				+ "prezzo ivato: " + getPrezzoIvato() + "$\n"
-				+ "codice piu nome: " + getCodeName() + "\n"
-				+ "codice formatato: " + getCodeFormat() + "\n";
+				+ "Codice: " + getCodeFormat() + "\n"
+				+ "Nome: " + getNome() + "\n"
+				+ "Descrizione: " + getDescrizione() + "\n"
+				+ "Prezzo: " + getPrezzo() + "$\n"
+				+ "Iva: " + getIva() + "%\n"
+				+ "Prezzo ivato: " + getPrezzoIvato() + "$\n"
+				+ "Nome completo: " + getCodeName() + "\n";
+
 
 
 	}
