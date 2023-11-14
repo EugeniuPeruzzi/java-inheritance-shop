@@ -1,19 +1,23 @@
 package org.lessons.java;
 
+// sub-class extends super class Prodotto > Smartphone
 public class Smartphone extends Prodotto{
-
+	// declaration of sub-class features
 	private String imei;
 	private int ram;
 	
+	// subclass costructor composed with superclass and subclass
 	public Smartphone(String nome, String descrizione, float prezzo, float iva, String imei, int ram) {
-		super(nome, descrizione, prezzo, iva);
 		
+		//before sub-class
+		super(nome, descrizione, prezzo, iva);
+		// sub-class
 		setImei(imei);
 		setRam(ram);
 		
 	}
 	
-
+	// classic getters and setters
 	public String getImei() {
 		return imei;
 	}
@@ -30,7 +34,7 @@ public class Smartphone extends Prodotto{
 		this.ram = ram;
 	}
 	
-	
+	// ovveride super class inside this subclass, gets to string from super class and add whatever you need
 	@Override
 	public String toString() {
 		
